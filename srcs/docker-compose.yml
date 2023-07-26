@@ -1,0 +1,43 @@
+networks:
+  my_network:
+    name: inception-net
+    driver: bridge
+
+volumes:
+  volume-react:
+    name: react-static
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/ubuntu/dist
+
+services:
+  nginx:
+    image: nginx:inception
+    init: true
+    build:
+      context: ./services/nginx/
+    networks:
+      - my_network
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - volume-react:/usr/share/nginx/html
+    env_file:
+      - .env
+    restart: always
+
+  express:
+    image: express:inception
+    init: true
+    build:
+      context: ./services/hide-api-key-server
+    networks:
+      - my_network
+    container_name: express
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    restart: always

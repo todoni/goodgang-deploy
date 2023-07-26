@@ -1,0 +1,3 @@
+[submodule "srcs/services/hide-api-key-server"]
+	path = srcs/services/hide-api-key-server
+	url = https://github.com/todoni/hide-api-key-server
