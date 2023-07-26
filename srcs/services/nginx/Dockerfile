@@ -19,10 +19,10 @@ COPY ./my.conf /etc/nginx/http.d/my.conf
 
 COPY ./error.html /usr/share/nginx/html/error.html
 
-EXPOSE 80
+EXPOSE 443
 
 STOPSIGNAL SIGQUIT
 
-VOLUME ["/var/www/html/wordpress"]
+VOLUME ["/usr/share/nginx/html"]
 
 CMD ["nginx", "-g", "daemon off;"]

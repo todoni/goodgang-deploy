@@ -3,7 +3,7 @@ COMPOSE_FILE = srcs/docker-compose.yml
 #MARIADB_VOLUME = /home/sohan/data/mariadb
 REACT_VOLUME = /home/ubuntu/dist
 LOCALHOST = 15.164.163.59
-DOMAIN = 15.164.163.59
+DOMAIN = sohan.me
 LOCAL_DNS_FILE = /etc/hosts
 
 up : 
